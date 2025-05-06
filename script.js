@@ -73,8 +73,30 @@ closedialog.addEventListener("click", (e) => {
   dialog.close();
 })
 
+function validatePages() {
+  const pagesValue = pages.value;
+  if (!pagesValue) return true;
+  
+  const num = parseInt(pagesValue);
+  return !isNaN(num) && num >= 0 && num <= 9999;
+}
+
 confirmBtn.addEventListener("click", (e) => {
   e.preventDefault();
+
+  const form = dialog.querySelector("form");
+  
+  if (!form.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+
+  if (!validatePages()) {
+    pages.setCustomValidity("Please enter a number between 0 and 9999");
+    pages.reportValidity();
+    return;
+  }
+
   const tit = title.value;
   const auth = author.value;
   const pag = pages.value;
@@ -82,4 +104,6 @@ confirmBtn.addEventListener("click", (e) => {
   const newBook = new Book(tit, auth, pag);
   
   addBookToLibrary(newBook);
+
+  form.reset();
 })
