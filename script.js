@@ -26,7 +26,7 @@ function addBookToLibrary(newBook) {
   const pauthor = document.createElement("p");
   const ppages = document.createElement("p");
   const read = document.createElement("button");
-  const remove = document.createElement("button");
+  const rm = document.createElement("button");
 
   ptitle.textContent = newBook.title;
   pauthor.textContent = newBook.author;
@@ -35,20 +35,21 @@ function addBookToLibrary(newBook) {
   read.classList.add("deactive");
   read.textContent = "Read";
 
-  remove.classList.add("remove");
-  remove.textContent = "Remove";
+  rm.classList.add("remove");
+  rm.textContent = "Remove";
 
   read.addEventListener("click", () => {
     read.classList.toggle("active");
     read.classList.toggle("deactive");
   })
 
-  // remove.addEventListener("click", () => {
-
-  // })
+   rm.addEventListener("click", () => {
+    books.removeChild(book);
+    delete myLibrary[newBook.id];
+   })
 
   options.appendChild(read);
-  options.appendChild(remove);
+  options.appendChild(rm);
   options.classList.add("options");
 
   book.appendChild(ptitle);
