@@ -14,6 +14,17 @@
     </div>
     <div class="books">
         <div class="book">
+            <p class="title">Adam Mickiewicz</p>
+            <p class="author">Pan Tadeusz</p>
+            <p class="pages">294</p>
+            <div class="options">
+                <button class="active">Read</button>
+                <button class="remove">Remove</button>
+            </div>
+        </div>
+        <div class="book">
+        </div>
+        <!-- <div class="book">
         </div>
         <div class="book">
         </div>
@@ -26,24 +37,30 @@
         <div class="book">
         </div>
         <div class="book">
-        </div>
-        <div class="book">
-        </div>
-        <div class="book">
-        </div>
+        </div> -->
     </div>
     <dialog id="dialog" closedby="closedrequest">
         <form>
-            <label for="title"></label>
-            <input type="text" name="title" id="title" /> 
-            <label for="author"></label>
-            <input type="text" name="author" id="author" /> 
-            <label for="pages"></label>
-            <input type="number" name="pages" id="pages" /> 
-          <div>
-            <button class="close">Close</button>
-            <button id="confirmBtn" value="default">Add</button>
-          </div>
+            <div>
+                <div class="inputs"> 
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" maxlength="50" required/> 
+                </div>
+                <div class="inputs">
+                    <label for="author">Author</label>
+                    <input type="text" name="author" id="author" maxlength="30" required/> 
+                </div>
+                <div class="inputs">
+                    <label for="pages">Pages</label>
+                    <input type="number" name="pages" id="pages" maxlength="4"/> 
+                </div>
+            </div>
+            <div>
+                <div class="dialbuttons">
+                    <button class="close">Close</button>
+                    <button id="confirmBtn" value="default">Add</button>
+                </div>
+            </div>
         </form>
     </dialog>
 </body>
